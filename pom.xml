@@ -5,8 +5,8 @@
 
 	<groupId>de.homerbond005</groupId>
 	<artifactId>redstonecommand</artifactId>
-	<version>3.1.2</version>
-	<name>RedstoneCommand</name>
+	<version>4.0.0</version>
+	<name>PlayParadise RedstoneCommand</name>
 
 	<repositories>
 		<repository>
@@ -78,7 +78,7 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>[1.6.4,)</version>
+			<version>1.15-R0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

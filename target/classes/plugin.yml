@@ -1,0 +1,10 @@
+name: PlayParadise RedstoneCommand
+main: de.homerbond005.redstonecommand.RedstoneCommand
+version: '4.0.0'
+author: Tim van Gompel, PlayParadise, HomerBond005
+description: Toggle redstone via a command.
+softdepend: [Multiverse-Core, MyWorlds, MultiWorld]
+commands:
+    rsc:
+        description: Toggles redstone power and provides other functions.
+        usage: Type /<command> for help.

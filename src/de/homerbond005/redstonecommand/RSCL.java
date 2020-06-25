@@ -28,7 +28,7 @@ public class RSCL implements Listener {
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onBlockBreak(BlockBreakEvent event) {
-		if (event.getBlock().getType() == Material.SIGN || event.getBlock().getType() == Material.SIGN_POST) {
+		if (event.getBlock().getType() == Material.OAK_SIGN || event.getBlock().getType() == Material.OAK_WALL_SIGN) {
 			Sign sign = (Sign) event.getBlock().getState();
 			if (sign.getLine(0).equalsIgnoreCase("[rsc]")) {
 				event.getPlayer().sendMessage(ChatColor.RED + "Please remove this RSC via /rsc delete " + sign.getLine(1) + "!");
@@ -47,14 +47,14 @@ public class RSCL implements Listener {
 				if (!player.hasPermission("RSC.create") || !player.hasPermission("RSC.*")) {
 					player.sendMessage(ChatColor.RED + "You do not have the required permission!");
 					event.getBlock().setType(Material.AIR);
-					ItemStack signpost = new ItemStack(Material.SIGN, 1);
+					ItemStack signpost = new ItemStack(Material.OAK_SIGN, 1);
 					player.getInventory().addItem(new ItemStack[] { signpost });
 					return;
 				}
 				if (RSCL.plugin.getConfig().getString("RedstoneCommands.Locations." + event.getLine(1)) != null) {
 					player.sendMessage(ChatColor.RED + "The RSC " + ChatColor.GOLD + event.getLine(1) + ChatColor.RED + " already exists.");
 					event.getBlock().setType(Material.AIR);
-					ItemStack signpost = new ItemStack(Material.SIGN, 1);
+					ItemStack signpost = new ItemStack(Material.OAK_SIGN, 1);
 					player.getInventory().addItem(new ItemStack[] { signpost });
 					return;
 				}
@@ -76,13 +76,13 @@ public class RSCL implements Listener {
 						player.sendMessage(ChatColor.RED + "Wrong torch direction!");
 						player.sendMessage(ChatColor.RED + "Possible values are: NORTH, EAST, SOUTH, WEST, UP, DOWN, NORTH_EAST, NORTH_WEST, SOUTH_EAST, SOUTH_WEST");
 						event.getBlock().setType(Material.AIR);
-						player.getInventory().addItem(new ItemStack[] { new ItemStack(Material.SIGN, 1) });
+						player.getInventory().addItem(new ItemStack[] { new ItemStack(Material.OAK_SIGN, 1) });
 						return;
 					}
 				} else if (RSCL.plugin.getSignPlaceDirectionModeEnabled()) {
 					@SuppressWarnings("deprecation")
 					byte signdata = event.getBlock().getData();
-					if (event.getBlock().getState().getType() == Material.WALL_SIGN) {
+					if (event.getBlock().getState().getType() == Material.OAK_WALL_SIGN) {
 						if (signdata == 4)
 							direction = BlockFace.NORTH;
 						else if (signdata == 2)
@@ -128,7 +128,7 @@ public class RSCL implements Listener {
 				if (delay != 0) {
 					event.getBlock().getWorld().getBlockAt(event.getBlock().getLocation().add(direction.getModX(), direction.getModY(), direction.getModZ())).setType(Material.AIR);
 				} else {
-					event.getBlock().getWorld().getBlockAt(event.getBlock().getLocation().add(direction.getModX(), direction.getModY(), direction.getModZ())).setType(Material.REDSTONE_TORCH_ON);
+					event.getBlock().getWorld().getBlockAt(event.getBlock().getLocation().add(direction.getModX(), direction.getModY(), direction.getModZ())).setType(Material.REDSTONE_TORCH);
 				}
 				RSCL.plugin.saveConfig();
 				RSCL.plugin.reloadRSCs();

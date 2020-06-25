@@ -1,7 +1,7 @@
-name: RedstoneCommand
+name: PlayParadise RedstoneCommand
 main: de.homerbond005.redstonecommand.RedstoneCommand
 version: '@PROJECT_VERSION@'
-author: HomerBond005
+author: Tim van Gompel, PlayParadise, HomerBond005
 description: Toggle redstone via a command.
 softdepend: [Multiverse-Core, MyWorlds, MultiWorld]
 commands:

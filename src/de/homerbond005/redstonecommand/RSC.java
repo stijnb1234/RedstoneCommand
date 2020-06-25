@@ -40,7 +40,7 @@ public class RSC {
 
 	public boolean isON() {
 		getTorchLocation().getChunk().load();
-		if (getTorchLocation().getBlock().getType() == Material.REDSTONE_TORCH_ON)
+		if (getTorchLocation().getBlock().getType() == Material.REDSTONE_TORCH)
 			return true;
 		else
 			return false;
@@ -56,7 +56,7 @@ public class RSC {
 
 	public void turnON() {
 		getTorchLocation().getChunk().load();
-		getTorchLocation().getBlock().setType(Material.REDSTONE_TORCH_ON);
+		getTorchLocation().getBlock().setType(Material.REDSTONE_TORCH);
 	}
 
 	public void turnOFF() {
