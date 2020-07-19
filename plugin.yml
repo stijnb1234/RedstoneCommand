@@ -1,4 +1,5 @@
-name: PlayParadise RedstoneCommand
+name: PlayParadise-RedstoneCommand
+api-version: 1.15
 main: de.homerbond005.redstonecommand.RedstoneCommand
 version: '@PROJECT_VERSION@'
 author: Tim van Gompel, PlayParadise, HomerBond005

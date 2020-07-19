@@ -6,7 +6,7 @@
 	<groupId>de.homerbond005</groupId>
 	<artifactId>redstonecommand</artifactId>
 	<version>4.0.0</version>
-	<name>PlayParadise RedstoneCommand</name>
+	<name>PlayParadise-RedstoneCommand</name>
 
 	<repositories>
 		<repository>
