@@ -119,7 +119,7 @@ public class Command implements TabExecutor {
             List<String> list = new ArrayList<>(Arrays.asList("list", "delete", "on", "off", "showmsg", "help"));
             list.addAll(RedstoneCommand.getPlugin(RedstoneCommand.class).getRscs().keySet());
             return StringUtil.copyPartialMatches(args[0], list, new ArrayList<>());
-        } else if (args.length == 2 && args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("showmsg")) {
+        } else if (args.length == 2 && (args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("showmsg"))) {
             return StringUtil.copyPartialMatches(args[1], new ArrayList<>(RedstoneCommand.getPlugin(RedstoneCommand.class).getRscs().keySet()), new ArrayList<>());
         } else if (args.length == 3 && args[0].equalsIgnoreCase("showmsg")) {
             return StringUtil.copyPartialMatches(args[2], Arrays.asList("true", "false"), new ArrayList<>());
