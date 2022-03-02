@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="redstonecommand" target="1.7" />
+      <module name="redstonecommand" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

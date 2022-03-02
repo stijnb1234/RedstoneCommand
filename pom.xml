@@ -5,80 +5,69 @@
 
 	<groupId>de.homerbond005</groupId>
 	<artifactId>redstonecommand</artifactId>
-	<version>4.0.0</version>
-	<name>PlayParadise-RedstoneCommand</name>
-
-	<repositories>
-		<repository>
-			<id>bukkit-repo</id>
-			<url>http://repo.bukkit.org/content/groups/public/</url>
-		</repository>
-	</repositories>
+	<version>4.1.0</version>
+	<name>RedstoneCommand</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven-snapshots</id>
+			<url>https://repository.apache.org/content/repositories/snapshots/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<build>
+		<defaultGoal>clean package</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.10.0</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
+					<release>17</release>
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
-				<version>1.5.2</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.3.1-SNAPSHOT</version>
 				<executions>
 					<execution>
-						<phase>prepare-package</phase>
+						<phase>package</phase>
 						<goals>
-							<goal>replace</goal>
+							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<includes>
-								<include>target/classes/plugin.yml</include>
-							</includes>
-							<token>@PROJECT_VERSION@</token>
-							<value>${project.version}</value>
+							<createDependencyReducedPom>false</createDependencyReducedPom>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.4.3</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
 		</plugins>
-		<finalName>${project.name}-${project.version}</finalName>
-		<sourceDirectory>${basedir}/src</sourceDirectory>
 		<resources>
 			<resource>
-				<filtering>false</filtering>
-				<directory>${basedir}</directory>
-				<includes>
-					<include>plugin.yml</include>
-					<include>COPYRIGHT</include>
-				</includes>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
 			</resource>
 		</resources>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.bukkit</groupId>
-			<artifactId>bukkit</artifactId>
-			<version>1.15-R0.1-SNAPSHOT</version>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+			<version>1.18.1-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
