@@ -6,9 +6,11 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Command implements TabExecutor {
@@ -116,13 +118,13 @@ public class Command implements TabExecutor {
         if (args.length == 1) {
             List<String> list = new ArrayList<>(Arrays.asList("list", "delete", "on", "off", "showmsg", "help"));
             list.addAll(RedstoneCommand.getPlugin(RedstoneCommand.class).getRscs().keySet());
-            return list;
+            return StringUtil.copyPartialMatches(args[0], list, new ArrayList<>());
         } else if (args.length == 2 && args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("showmsg")) {
-            return new ArrayList<>(RedstoneCommand.getPlugin(RedstoneCommand.class).getRscs().keySet());
+            return StringUtil.copyPartialMatches(args[1], new ArrayList<>(RedstoneCommand.getPlugin(RedstoneCommand.class).getRscs().keySet()), new ArrayList<>());
         } else if (args.length == 3 && args[0].equalsIgnoreCase("showmsg")) {
-            return Arrays.asList("true", "false");
+            return StringUtil.copyPartialMatches(args[2], Arrays.asList("true", "false"), new ArrayList<>());
         }
-        return null;
+        return Collections.emptyList();
     }
 
     /**
