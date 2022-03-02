@@ -114,7 +114,7 @@ public class Command implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
         if (args.length == 1) {
-            List<String> list = Arrays.asList("list", "delete", "on", "off", "showmsg", "help");
+            List<String> list = new ArrayList<>(Arrays.asList("list", "delete", "on", "off", "showmsg", "help"));
             list.addAll(RedstoneCommand.getPlugin(RedstoneCommand.class).getRscs().keySet());
             return list;
         } else if (args.length == 2 && args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("showmsg")) {
