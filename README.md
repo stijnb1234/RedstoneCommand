@@ -11,3 +11,7 @@ This resource contains a fork of the RedstoneCommand plugin by [HomerBond005](ht
 - Fixed some minor bugs
 - Added tab complete support
 - Removed garbage from repository
+
+### License
+
+RedstoneCommand is licensed under the MIT license. Check out the original plugin's license [here](LICENSE).
